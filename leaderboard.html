@@ -1,0 +1,56 @@
+<head>
+  <title>Songs of the City</title>
+	
+	<script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
+	<script src="//connect.soundcloud.com/sdk.js"></script>
+</head>
+
+<body>
+	<div id="prompt" class="container">
+		<div class="hero-unit">
+			<h1>Songs of the City</h1>
+		
+			{{> prompt}}
+	
+			<div id="description">
+				{{> description}}
+			</div>
+		</div>
+	</div>
+
+	<div id="playlist" class="hide container">
+		<div class="page-header">
+			<h1>Songs of the City</h1>
+		</div>
+		<div id="player">
+			<div class="loading">
+				<h3>Please wait while we load your tunes.</h3>
+				<div class="progress progress-striped active">
+					<div class="bar" style="width: 100%;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<template name="playlist">
+	{{#each songs}}
+		<tr>
+			{{> song}}
+		</tr>
+	{{/each}}
+</template>
+
+<template name="prompt">
+	<form>
+		<p>I 
+			<input type="text" id="verb" name="verb" placeholder="Emotion" data-provide="typeahead" data-items="4" data-source='["love","miss","fear"]'> 
+			<input type="text" id="city" name="city" placeholder="Location" data-provide="typeahead" data-items="4" data-source='["Paris","New York","London","Dubai"]'>.
+		</p>
+	</form>
+</template>
+
+<template name="description">
+	<p>As we navigate an increasingly globalized world, music can root us in a particular place. One song reminds us of our first kiss, while another takes us back to that childhood trip to Rome. It can also inspire us towards places we've never visited, as New York has drawn in millions with its promise of hope.</p>
+	<p>Song of the City capitalizes on this by building playlists around how you feel towards a certain city. Just by taking an emotion and location, we'll stream you a playlist which reflects all your pent-up feelings towards there, whether Baltimore blues or Roman romance.</p>
+</template>
